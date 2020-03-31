@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestationsalder og vægtdeviation</title>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--<script src="https://unpkg.com/d3@3/d3.min.js"></script>
+    <script src="https://unpkg.com/function-plot@1/dist/function-plot.js"></script>-->
+
+    <link rel="stylesheet" href="css/application.css">
+
+  </head>
+
+  <body>
+    <div class="container">
+
+      <h1>Gestationsalder og vægtdeviation</h1>
+
+      <div class="row">
+        <div class="col-sm text-center">
+          <div id="btn-grp-gender" class="btn-group" role="group" aria-label="Gender" style="margin-bottom: 20px">
+            <button id="btn-boy" type="button" data-toggle="button" class="btn btn-primary active">Dreng ♂</button>
+            <button id="btn-girl" type="button" data-toggle="button" class="btn btn-light">Pige ♀</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Gestationsalder (GA)</span>
+            </div>
+            <input id="input-ga" type="text" placeholder="37+0" maxlength="4" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onchange="calcBW()">
+            <div class="input-group-append">
+              <span class="input-group-text" id="inputGroup-sizing-sm">uu+d</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Fødselsvægt (FV)</span>
+            </div>
+            <input id="input-bw" type="number" min="300" max="7000" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" onchange="calcBW()">
+            <div class="input-group-append">
+              <span class="input-group-text" id="inputGroup-sizing-sm">gram</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="card">
+            <div class="card-header">
+              Resultater
+            </div>
+            <div class="card-body">
+              <div id="res-wait">
+                <center>Afventer input...</center>
+              </div>
+              <div id="res-out" style="display: none">
+                <!--<h5 class="card-title">Ved oplyst GA/termin</h5>-->
+                <table class="table table-sm">
+                  <tbody>
+                    <tr>
+                      <th scope="row">GA (dage)</td>
+                      <td><span id="ga-days"></span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">GA (uger)</td>
+                      <td><span id="ga-weeks"></span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Normalvægt for GA</td>
+                      <td><span id="ga-nw"></span></td>
+                    </tr>
+                    <tr class="row-weightdeviation">
+                      <th scope="row">Vægtdeviation (%)</td>
+                      <td><span id="ga-weightdeviation-percent"></span></td>
+                    </tr>
+                    <tr class="row-weightdeviation">
+                      <th scope="row">Vægtdeviation (SD)</td>
+                      <td><span id="ga-weightdeviation-sd"></span></td>
+                    </tr>
+                    <tr class="row-weightdeviation">
+                      <th scope="row">FV status</td>
+                      <td><span id="ga-status"></span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <h1>Plot</h1>
+      <div class="row" id="myPlot">
+      </div>
+      -->
+
+      <h1>Referencer</h1>
+      <ul>
+        <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/8819552">Marsál K et al, 1996</a></li>
+      </ul>
+    </div>
+    <script src="js/application.js"></script>
+    <script>
+/*
+var parameters = {
+  target: '#myPlot',
+  data: [{
+    //fn: '-2.761948e-6*x^4+1.744841e-3*x^3-2.893626e-1*x^2+(1.891197e+1)*x+-4.135122e+2',
+    fn: '-1.907345e-6*x^4+1.140644e-3*x^3-1.336265e-1*x^2+(1.976961e+0)*x+2.410053e+2',
+    color: 'black',
+ }],
+  yAxis: {label: 'fødselsvægt (gram)', domain: [0, 4000]},
+  xAxis: {label: 'gestationsalder (dage)', domain: [22*7, 50*7]},
+  disableZoom: true,
+};
+
+functionPlot(parameters);*/
+    </script>
+  </body>
+</html>
