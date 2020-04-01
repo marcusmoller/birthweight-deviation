@@ -153,7 +153,6 @@ $('#input-ga').change(function() {
 
   // everything went ok, unfocus
   $(this).blur();
-  $(document).scrollTop($(this).offset().top);
 });
 $('#input-bw').change(function() {
   if (parseInt($(this).val()) < 300 || parseInt($(this).val()) > 7000) {
@@ -165,6 +164,5 @@ $('#input-bw').change(function() {
   } else {
     // unfocus when succesful
     $(this).blur();
-  $(document).scrollTop($('#input-ga').offset().top);
   };
 });
