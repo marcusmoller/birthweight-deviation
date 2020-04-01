@@ -4,8 +4,9 @@ function BWFromGA(gender, ga) {
    *
    * @param gender Integer for gender for calculations, boy == 0 and girl == 1
    * @param ga Integer for gestationalage in days
-   * @return normal birthweight for given ga
+   * @return integer normal birthweight for given ga
    */
+
   if (gender == 0) { // boy
     return -1.907345e-6*Math.pow(ga, 4) +
       1.140644e-3*Math.pow(ga, 3) +
@@ -22,9 +23,12 @@ function BWFromGA(gender, ga) {
   }
 }
 function checkInput() {
-  /* checks if input is in correct format and range
-   * returns true if everything is OK, false if not
-  */
+  /**
+   * Checks if input is in correct format and range
+   *
+   * @return true if everything is OK, false if not
+   */
+
   // check week input for range between 22 and 44
   if (parseInt($('#input-ga').val().substr(0, 2)) < 22 || parseInt($('#input-ga').val().substr(0, 2)) > 44) {
     return false;
@@ -40,7 +44,10 @@ function checkInput() {
   return true;
 }
 function calcBW() {
-  /* main function */
+  /**
+   * Main function called when doing calculations.
+   * This function is called when input is changed.
+   */
 
   // get gender
   var gender = null;
@@ -147,5 +154,8 @@ $('#input-bw').change(function() {
   if (parseInt($(this).val()) < 300 || parseInt($(this).val()) > 7000) {
     alert("Accepterer kun indtastning af fødselsvægte i intervallet 300 til 7000 gram.");
     $(this).val('');
+
+    // hide table
+    $(".row-weightdeviation").hide();
   }
 });
