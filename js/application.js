@@ -140,6 +140,7 @@ $('#input-ga').change(function() {
   if ($(this).val()[2] != '+') {
     alert('Oplyst gestationsalder skal indtastest i formatet uger+dage (UU+D).');
     $(this).val('');
+    $(this).focus();
     return;
   };
 
@@ -157,5 +158,8 @@ $('#input-bw').change(function() {
 
     // hide table
     $(".row-weightdeviation").hide();
-  }
+  } else {
+    // unfocus when succesful
+    $(this).blur();
+  };
 });
